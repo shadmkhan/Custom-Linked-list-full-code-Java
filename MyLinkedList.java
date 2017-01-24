@@ -1,5 +1,3 @@
-package CoreJava;
-
 //A node is an entity to store data in the linked list along with the link to the next node
 class Node<T>
 {
