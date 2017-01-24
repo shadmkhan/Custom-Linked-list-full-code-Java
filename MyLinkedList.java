@@ -1,4 +1,6 @@
 package CoreJava;
+
+//A node is an entity to store data in the linked list along with the link to the next node
 class Node<T>
 {
 	
@@ -37,6 +39,9 @@ class Node<T>
 	
 }
 
+
+//CustomLinkedList is a collection of nodes.
+//It has a start and an end node pointers for insert and delete operations
 class CustomLinkedList<T>
 {
 	Node<T> ndStart = new Node<T>();
@@ -59,43 +64,47 @@ class CustomLinkedList<T>
 		return size;
 	}
 	
+	//Add a node at the end
 	public void addLast(T data)
 	{
-		//Node<T> newNode = new Node<T>();
+		Node<T> newNode = new Node<T>(data,null);
 		if(ndStart==null)
 		{
-			Node<T> newNode = new Node<T>(data,null);
-			ndStart=newNode;
-			ndEnd=newNode;
-		}
-		else
-		{
-			Node<T> newNode = new Node<T>(data,null);
-			ndEnd.next=newNode;
-			ndEnd=newNode;
-		}
-		size++;
-	}
-	
-	public void addFirst(T data)
-	{
-		//Node<T> newNode = new Node<T>();
-		if(ndStart==null)
-		{
-			Node<T> newNode = new Node<T>(data,null);
+			
 			ndStart=newNode;
 			ndEnd=newNode;
 		}
 		else
 		{
 			
-			Node<T> newNode = new Node<T>(data,null);
+			ndEnd.next=newNode;
+			ndEnd=newNode;
+		}
+		size++;
+	}
+
+	//Add a node at the beginning
+	public void addFirst(T data)
+	{
+
+		Node<T> newNode = new Node<T>(data,null);
+		if(ndStart==null)
+		{
+
+			ndStart=newNode;
+			ndEnd=newNode;
+		}
+		else
+		{
+			
+
 			newNode.next=ndStart;
 			ndStart=newNode;
 		}
 		size++;
 	}
 	
+	//Print the entire list
 	public String toString()
 	{
 		if (ndStart==null)
@@ -122,12 +131,13 @@ class CustomLinkedList<T>
 	
 }
 
+//Example of how to use.
 public class MyLinkedList 
 {
 	public static void main(String[] args) {
 		CustomLinkedList<String> csl = new CustomLinkedList<String>();
-		csl.addFirst("Shad");
-		csl.addFirst("Mr.");
+		csl.addFirst("Java");
+		csl.addFirst("Core");
 		csl.addLast("is");
 		csl.addLast("Great");
 		System.out.println(csl);
