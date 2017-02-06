@@ -1,3 +1,9 @@
+/*
+ * Shad M Khan
+ * Custom Linked List implementation in Java with support for generics
+ * January 5th 2017
+*/
+
 //A node is an entity to store data in the linked list along with the link to the next node
 class Node<T>
 {
